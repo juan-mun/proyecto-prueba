@@ -37,6 +37,7 @@ jobs:
         run: |
          source env/bin/activate
          pytest
+         
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -44,6 +45,6 @@ jobs:
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
             aws-region: us-east-1
-      - name: List buckets
-        run: aws s3 cp /proyecto-prueba/test_utils.py s3://laclasedecamilo/
+      - name: copy archives to s3
+        run: aws s3 cp utils.py s3://laclasedecamilo/
         
