@@ -45,5 +45,5 @@ jobs:
             aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
             aws-region: us-east-1
       - name: List buckets
-        run: aws s3 ls
+        run: aws s3 cp /proyecto-prueba/test_utils.py s3://laclasedecamilo/
         
