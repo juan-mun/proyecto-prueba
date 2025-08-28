@@ -48,7 +48,9 @@ jobs:
       - name: Check if Lambda function exists
         id: check_function
         run: |
+          python -m venv env
           source env/bin/activate
+          pip install -r requirements.txt
           FUNCTION_NAME=$(python -c "
           import json
           with open('zappa_settings.json', 'r') as f:
